@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "545676157710",
+    "firebase_url": "https://superfoods-e7e8e.firebaseio.com",
+    "project_id": "superfoods-e7e8e",
+    "storage_bucket": "superfoods-e7e8e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545676157710:android:a518a9f22ff6e490",
+        "android_client_info": {
+          "package_name": "com.example.superfoods"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545676157710-nkbbckdvdcngaa8erilefrr9nt313vtd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.superfoods",
+            "certificate_hash": "db82a2d9442653860931666e8008c8fbc3395a5d"
+          }
+        },
+        {
+          "client_id": "545676157710-hou0iqs5q1rbo9lanurt129r2dmn7jts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_TW33QGjUhXIiato4bz0Kdpb2JP6K9_I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545676157710-hou0iqs5q1rbo9lanurt129r2dmn7jts.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
