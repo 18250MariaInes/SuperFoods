@@ -76,6 +76,7 @@ class RegisterActivity : AppCompatActivity() {
                 task ->
 
                 if (task.isComplete){
+                    //finish()
                     Toast.makeText(this, "Email enviado", Toast.LENGTH_LONG).show()
                 }else{
                     Toast.makeText(this, "Error al enviar email", Toast.LENGTH_LONG).show()

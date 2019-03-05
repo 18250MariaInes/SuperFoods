@@ -45,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
                     task ->
 
                     if (task.isSuccessful){
+                        //finish()
                        action()
                     }else{
                         Toast.makeText(this, "Error al iniciar sesión (autenticación)", Toast.LENGTH_LONG).show()
