@@ -11,6 +11,7 @@ import com.example.superfoods.Receta
 import com.google.firebase.firestore.FirebaseFirestore
 
 class RecyclerViewAdapter(
+    //private var listener:onItemClickListener?=null,
     private val recetasList: MutableList<Receta>,
     private val context: Context,
     private val firestoreDB: FirebaseFirestore
@@ -29,9 +30,6 @@ class RecyclerViewAdapter(
 
     }
 
-
-
-
     override fun getItemCount(): Int {
         return recetasList.size
     }
@@ -40,8 +38,14 @@ class RecyclerViewAdapter(
         internal var title: TextView
         internal var content: TextView
         init {
-            title = view.findViewById(R.id.txtnombrer)
+            title = view.findViewById(R.id.txtnombre)
             content = view.findViewById(R.id.txtcategoria)
         }
+    }
+    interface onItemClickListener{
+        fun onItemClick(contact: Receta)
+    }
+    fun setOnItemClickListener(listener: onItemClickListener){
+        //this.listener=listener
     }
 }

@@ -1,11 +1,13 @@
  package com.example.superfoods
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import com.example.superfoods.adapter.RecyclerViewAdapter
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,10 +27,22 @@ import kotlinx.android.synthetic.main.activity_todas_recetas.*
         setContentView(R.layout.activity_todas_recetas)
         val correo = intent.getStringExtra("CORREO")
         us = FirebaseFirestore.getInstance()
+
         loadAllRecetas(us!!)
 
-        //mAdapter = RecyclerViewAdapter(recetasList, applicationContext, us!!)
-        RecetasList.adapter = mAdapter
+        /*mAdapter!!.setOnItemClickListener(object :RecyclerViewAdapter.onItemClickListener{
+            override fun onItemClick(contact: Receta){
+                var intent= Intent(baseContext, MostrarReceta::class.java)
+                intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
+                intent.putExtra(MostrarReceta.EXTRA_NUMERO, contact.ingredientes)
+                intent.putExtra(MostrarReceta.EXTRA_CORREO, contact.categoria)
+                intent.putExtra(MostrarReceta.EXTRA_PRIORITY, contact.proceso)
+                startActivityForResult(intent, 1)
+            }
+        })*/
+
+       /* mAdapter = RecyclerViewAdapter(recetasList, applicationContext, us!!)
+        RecetasList.adapter = mAdapter*/
     }
      override fun onCreateOptionsMenu(menu: Menu): Boolean {
          menuInflater.inflate(R.menu.menu_main, menu)
@@ -62,7 +76,28 @@ import kotlinx.android.synthetic.main.activity_todas_recetas.*
                      RecetasList.adapter = mAdapter
 
                      Log.e(TAG, "onSuccess: " + types[0].Nombre!!)
+
+                 }
+
+
+             })
+
+     }
+     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+         if (item != null) {
+             mAdapter!!.setOnItemClickListener(object :RecyclerViewAdapter.onItemClickListener{
+                 override fun onItemClick(contact: Receta){
+                     var intent= Intent(baseContext, MostrarReceta::class.java)
+                     intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
+                     intent.putExtra(MostrarReceta.EXTRA_NUMERO, contact.ingredientes)
+                     intent.putExtra(MostrarReceta.EXTRA_CORREO, contact.categoria)
+                     intent.putExtra(MostrarReceta.EXTRA_PRIORITY, contact.proceso)
+                     startActivityForResult(intent, 1)
                  }
              })
+
+
+         }
+         return super.onOptionsItemSelected(item)
      }
 }
