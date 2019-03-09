@@ -33,7 +33,7 @@
     <Button
             android:text="Ver tus recetas"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/VerRecetas"/>
+            android:layout_height="wrap_content" android:id="@+id/VerRecetas" android:onClick="mostrarRecetas"/>
     <Button
             android:text="Guardar nueva receta"
             android:layout_width="match_parent"

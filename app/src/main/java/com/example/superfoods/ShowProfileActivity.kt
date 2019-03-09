@@ -62,7 +62,7 @@ class ShowProfileActivity : AppCompatActivity() {
                 }
             })
         auth= FirebaseAuth.getInstance()
-        val frankDocRef = mFirebaseFirestore.collection("users").document("qN7ZV23a4ccyTysXn6Qv").update("nombre","SSSSS")
+        //val frankDocRef = mFirebaseFirestore.collection("users").document("qN7ZV23a4ccyTysXn6Qv").update("nombre","")
 
     }
     fun crearReceta(view:View){
@@ -72,7 +72,11 @@ class ShowProfileActivity : AppCompatActivity() {
         startActivityForResult(intent, 1)
         finish()
     }
-    fun mostrarRecetas(){
-
+    fun mostrarRecetas(view: View){
+        val correo = intent.getStringExtra("CORREO")
+        val intent = Intent(applicationContext, TodasRecetas::class.java)
+        intent.putExtra("CORREO", correo)
+        startActivityForResult(intent, 1)
+        finish()
     }
 }
