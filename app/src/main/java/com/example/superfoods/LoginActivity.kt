@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
@@ -51,9 +52,13 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this, "Error al iniciar sesión (autenticación)", Toast.LENGTH_LONG).show()
                     }
                 }
+            Log.e("UUDI",auth.currentUser?.uid)
         }
     }
     private fun action(){
-        startActivity(Intent(this, MainActivity::class.java))
+        val correo=txtUser.text.toString()
+        val intent = Intent(applicationContext, ShowProfileActivity::class.java)
+        intent.putExtra("CORREO", correo)
+        startActivityForResult(intent, 1)
     }
 }

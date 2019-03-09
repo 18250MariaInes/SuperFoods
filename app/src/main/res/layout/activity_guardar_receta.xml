@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".GuardarReceta">
+
+    <TextView
+            android:text="Nombre de receta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/nombre"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/nombretxt"/>
+    <TextView
+            android:text="Categoría"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/categoria"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/categoritatxt"/>
+    <TextView
+            android:text="Ingredientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/ingredientes"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/ingretxt"/>
+    <TextView
+            android:text="Proceso:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/proceso"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/procesotxt"/>
+    <Button
+            android:text="GUARDAR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/GuardarReceta" android:onClick="guardarReceta"/>
+</LinearLayout>
