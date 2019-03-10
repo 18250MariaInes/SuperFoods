@@ -20,6 +20,10 @@
                 android:id="@+id/nav_Buscar_Productos"
                 android:icon="@drawable/ic_menu_manage"
                 android:title="Buscar Productos"/>
+        <item
+                android:id="@+id/nav_Perfil"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Perfil"/>
     </group>
 
 </menu>

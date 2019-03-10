@@ -35,6 +35,11 @@
                 android:label="@string/title_activity_nav"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+                android:name=".Mis_Recetas"
+                android:label="@string/title_activity_mis__recetas"
+                android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

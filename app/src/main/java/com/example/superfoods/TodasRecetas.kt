@@ -87,11 +87,11 @@ import kotlinx.android.synthetic.main.activity_todas_recetas.*
          if (item != null) {
              mAdapter!!.setOnItemClickListener(object :RecyclerViewAdapter.onItemClickListener{
                  override fun onItemClick(contact: Receta){
-                     var intent= Intent(baseContext, MostrarReceta::class.java)
-                     intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
-                     intent.putExtra(MostrarReceta.EXTRA_NUMERO, contact.ingredientes)
-                     intent.putExtra(MostrarReceta.EXTRA_CORREO, contact.categoria)
-                     intent.putExtra(MostrarReceta.EXTRA_PRIORITY, contact.proceso)
+                     var intent= Intent(baseContext, Mis_Recetas::class.java)
+                     intent.putExtra(Mis_Recetas.EXTRA_NOMBRE, contact.nombre)
+                     intent.putExtra(Mis_Recetas.EXTRA_NUMERO, contact.ingredientes)
+                     intent.putExtra(Mis_Recetas.EXTRA_CORREO, contact.categoria)
+                     intent.putExtra(Mis_Recetas.EXTRA_PRIORITY, contact.proceso)
                      startActivityForResult(intent, 1)
                  }
              })

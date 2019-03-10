@@ -1,6 +1,5 @@
 package com.example.superfoods
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
@@ -9,15 +8,28 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_nav.*
-import kotlinx.android.synthetic.main.app_bar_nav.*
+import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_mis__recetas.*
+import kotlinx.android.synthetic.main.app_bar_mis__recetas.*
 
-class Nav : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-
+class Mis_Recetas : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    private lateinit var txtnombre: TextView
+    private lateinit var txtcateg: TextView
+    companion object {
+        const val EXTRA_ID = "com.example.maria.laboratorio7.EXTRA_ID"
+        const val EXTRA_NOMBRE = "com.example.maria.laboratorio7.EXTRA_NOMBRE"
+        const val EXTRA_NUMERO = "com.example.maria.laboratorio7.EXTRA_NUMERO"
+        const val EXTRA_PRIORITY = "com.example.maria.laboratorio7.EXTRA_PRIORITY"
+        const val EXTRA_CORREO = "com.example.maria.laboratorio7.EXTRA_CORREO"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_nav)
+        setContentView(R.layout.activity_mis__recetas)
         setSupportActionBar(toolbar)
+        txtnombre=findViewById(R.id.txtnombre)
+        //txtcateg=findViewById(R.id.txtcategoria)
+        txtnombre.setText(intent.getStringExtra(Mis_Recetas.EXTRA_NOMBRE))
+
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -38,7 +50,7 @@ class Nav : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.nav, menu)
+        menuInflater.inflate(R.menu.mis__recetas, menu)
         return true
     }
 
@@ -55,26 +67,22 @@ class Nav : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_Mis_Recetas -> {
-                //
-                val correo = intent.getStringExtra("CORREO")
-                val intent = Intent(applicationContext, TodasRecetas::class.java)
-                intent.putExtra("CORREO", correo)
-                startActivityForResult(intent, 1)
-                finish()
+            R.id.nav_camera -> {
+                // Handle the camera action
+            }
+            R.id.nav_gallery -> {
 
             }
-            R.id.nav_Mis_Productos-> {
+            R.id.nav_slideshow -> {
 
             }
-            R.id.nav_Buscar_Recetas -> {
+            R.id.nav_manage -> {
 
             }
-            R.id.nav_Buscar_Productos -> {
+            R.id.nav_share -> {
 
             }
-            R.id.nav_Perfil -> {
-
+            R.id.nav_send -> {
 
             }
         }
