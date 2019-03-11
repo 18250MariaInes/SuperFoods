@@ -11,12 +11,39 @@
     <TextView
             android:text="Nombre de receta:"
             android:layout_width="match_parent"
+            android:textColor="@android:color/black"
             android:layout_height="wrap_content" android:id="@+id/nombre"/>
     <TextView
             android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="wrap_content" android:id="@+id/nombretxt"/>
     <TextView
-            android:text="TextView"
+            android:text="Categoría"
             android:layout_width="match_parent"
+            android:textColor="@android:color/black"
             android:layout_height="wrap_content" android:id="@+id/Categ"/>
+    <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/categtxt"/>
+    <TextView
+            android:text="Ingredientes:"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content" android:id="@+id/ingredientes"/>
+    <TextView
+
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content" android:id="@+id/ingtxt"/>
+    <TextView
+            android:text="Proceso:"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/black"
+            android:layout_height="wrap_content" android:id="@+id/proceso"/>
+    <TextView
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="163dp" android:id="@+id/proctxt"/>
+
 </LinearLayout>
