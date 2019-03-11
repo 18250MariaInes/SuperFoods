@@ -57,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun action(){
         val correo=txtUser.text.toString()
-        val intent = Intent(applicationContext, Nav::class.java)
+        val intent = Intent(applicationContext, TodasRecetas::class.java)
         intent.putExtra("CORREO", correo)
         startActivityForResult(intent, 1)
     }

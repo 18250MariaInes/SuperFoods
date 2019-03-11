@@ -17,7 +17,7 @@ class RecyclerViewAdapter(
     private val firestoreDB: FirebaseFirestore
 ): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-        val view = LayoutInflater.from(p0!!.context).inflate(R.layout.activity_mis__recetas, p0, false)
+        val view = LayoutInflater.from(p0!!.context).inflate(R.layout.item_receta, p0, false)
 
         return ViewHolder(view)
     }
