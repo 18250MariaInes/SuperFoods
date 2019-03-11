@@ -2,9 +2,13 @@ package com.example.superfoods
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.EditText
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
+import android.view.MenuInflater
+import android.view.MenuItem
+
 
 class MostrarReceta : AppCompatActivity() {
     private lateinit var txtnombre: TextView
@@ -24,4 +28,5 @@ class MostrarReceta : AppCompatActivity() {
         //txtcateg=findViewById(R.id.txtcategoria)
         txtnombre.setText(intent.getStringExtra(EXTRA_NOMBRE))
     }
+
 }
