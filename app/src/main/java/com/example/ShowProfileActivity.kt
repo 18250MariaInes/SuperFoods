@@ -4,6 +4,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -78,5 +80,43 @@ class ShowProfileActivity : AppCompatActivity() {
         intent.putExtra("CORREO", correo)
         startActivityForResult(intent, 1)
         finish()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_opciones, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        /*if (item != null) {
+            mAdapter!!.setOnItemClickListener(object : RecyclerViewAdapter.onItemClickListener{
+                override fun onItemClick(contact: Receta){
+                    var intent= Intent(baseContext, MostrarReceta::class.java)
+                    intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
+                    intent.putExtra(MostrarReceta.EXTRA_NUMERO, contact.ingredientes)
+                    intent.putExtra(MostrarReceta.EXTRA_CORREO, contact.categoria)
+                    intent.putExtra(MostrarReceta.EXTRA_PRIORITY, contact.proceso)
+                    startActivityForResult(intent, 1)
+                }
+            })*/
+        val id = item!!.getItemId()
+
+        if (id == R.id.Perfil) {
+            val correo = intent.getStringExtra("CORREO")
+            val intent = Intent(applicationContext, ShowProfileActivity::class.java)
+            intent.putExtra("CORREO", correo)
+            startActivityForResult(intent, 1)
+            return true
+        }else if (id == R.id.Mis_Recetas) {
+            val correo = intent.getStringExtra("CORREO")
+            val intent = Intent(applicationContext, TodasRecetas::class.java)
+            intent.putExtra("CORREO", correo)
+            startActivityForResult(intent, 1)
+            return true
+        }
+
+
+        return super.onOptionsItemSelected(item)
     }
 }
