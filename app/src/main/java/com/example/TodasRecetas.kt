@@ -100,7 +100,7 @@ class TodasRecetas : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item != null) {
-        /*    mAdapter!!.setOnItemClickListener(object :RecyclerViewAdapter.onItemClickListener{
+           mAdapter!!.setOnItemClickListener(object :RecyclerViewAdapter.onItemClickListener{
                 override fun onItemClick(contact: Receta){
                     var intent= Intent(baseContext, MostrarReceta::class.java)
                     intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
@@ -109,7 +109,7 @@ class TodasRecetas : AppCompatActivity() {
                     intent.putExtra(MostrarReceta.EXTRA_PROCESO, contact.proceso)
                     startActivityForResult(intent, 1)
                 }
-            })*/
+            })
             val id = item!!.getItemId()
 
             if (id == R.id.Perfil) {
