@@ -9,6 +9,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".MostrarProducto">
+        </activity>
+        <activity android:name=".CrearProducto">
+        </activity>
+        <activity android:name=".BuscarProductos">
+        </activity>
         <activity android:name=".TodasRecetas">
         </activity>
         <activity android:name=".MostrarReceta">

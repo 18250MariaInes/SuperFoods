@@ -14,4 +14,5 @@ class Receta {
         this.ingredientes=ingredientes
         this.proceso=proceso
     }
+
 }
