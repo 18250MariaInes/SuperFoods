@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import com.example.adapter.ProductosRecyclerView
 import com.example.superfoods.adapter.RecyclerViewAdapter
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,6 +19,7 @@ class TodasRecetas : AppCompatActivity() {
     private val TAG = "MainActivity"
 
     private var mAdapter: RecyclerViewAdapter? = null
+    private var mAdapterp: ProductosRecyclerView? = null
 
     private var us: FirebaseFirestore? = null
     private var firestoreListener: ListenerRegistration? = null
@@ -124,6 +126,9 @@ class TodasRecetas : AppCompatActivity() {
                 intent.putExtra("CORREO", correo)
                 startActivityForResult(intent, 1)
                 return true
+            }else if (id==R.id.Buscar_Productos){
+                val intent = Intent(this, BuscarProductos::class.java)
+                startActivity(intent)
             }
 
         }
