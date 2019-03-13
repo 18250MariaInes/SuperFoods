@@ -6,7 +6,7 @@
               android:orientation="horizontal"
               android:padding="10dp"
               android:weightSum="10"
-android:background="@color/backgroundBeige">
+              android:background="@color/backgroundBeige">
 
     <LinearLayout
             android:layout_width="wrap_content"
