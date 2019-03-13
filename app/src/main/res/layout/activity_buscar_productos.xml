@@ -6,11 +6,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        tools:context=".BuscarProductos">
+        tools:context=".BuscarProductos"
+android:background="@color/backgroundBeige">
 
     <TextView
             android:text="Introduce el producto que deseas buscar."
             android:layout_width="wrap_content"
+            android:textColor="@color/colorTurquesa"
             android:layout_height="wrap_content" tools:layout_editor_absoluteY="182dp"
             tools:layout_editor_absoluteX="78dp" android:id="@+id/textView"/>
     <EditText
@@ -18,21 +20,26 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
+            android:textColorHint="@color/colorVerde"
+            android:background="@color/backgroundBeige"
             android:id="@+id/productotxt" android:hint="producto"/>
     <android.support.v7.widget.RecyclerView
             android:id="@+id/productosList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-
+            android:background="@color/backgroundBeige"
             android:layout_marginTop="16dp"
             android:scrollbars="vertical"/>
     <Button
+            android:background="@color/colorVerde"
+            android:textColor="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/crearProducto" android:text="Crear producto"
             android:onClick="crearProducto"/>
     <Button
             android:text="BUSCAR"
+            android:background="@color/colorVerde"
+            android:textColor="@android:color/white"
             app:layout_constraintBottom_toTopOf="@+id/productosList"
             android:layout_width="match_parent"
             android:onClick="buscarProducto"

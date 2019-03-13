@@ -6,14 +6,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MostrarProducto">
+        tools:context=".MostrarProducto"
+android:background="@color/backgroundBeige">
 
     <TextView
             android:text="Nombre"
+            android:textColor="@color/colorTurquesa"
+            android:textStyle="bold"
+            android:textSize="22dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/nombretxt"/>
     <TextView
             android:text="Descripción"
+            android:textStyle=""
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/desctxt"/>
     <TextView

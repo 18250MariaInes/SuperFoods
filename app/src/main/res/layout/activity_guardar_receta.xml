@@ -6,11 +6,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".GuardarReceta">
+        tools:context=".GuardarReceta"
+android:background="@color/backgroundBeige">
 
     <TextView
             android:text="Nombre de receta"
             android:layout_width="match_parent"
+            android:textColor="@color/colorTurquesa"
+            android:textStyle="bold"
             android:layout_height="wrap_content" android:id="@+id/nombre"/>
     <EditText
             android:layout_width="match_parent"
@@ -20,6 +23,8 @@
             android:id="@+id/nombretxt"/>
     <TextView
             android:text="Categoría"
+            android:textColor="@color/colorTurquesa"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/categoria"/>
     <EditText
@@ -30,6 +35,8 @@
             android:id="@+id/categoritatxt"/>
     <TextView
             android:text="Ingredientes"
+            android:textColor="@color/colorTurquesa"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/ingredientes"/>
     <EditText
@@ -40,6 +47,8 @@
             android:id="@+id/ingretxt"/>
     <TextView
             android:text="Proceso:"
+            android:textColor="@color/colorTurquesa"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/proceso"/>
     <EditText
@@ -50,6 +59,8 @@
             android:id="@+id/procesotxt"/>
     <Button
             android:text="GUARDAR"
+            android:background="@color/colorVerde"
+            android:textColor="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/GuardarReceta" android:onClick="guardarReceta"/>
 </LinearLayout>

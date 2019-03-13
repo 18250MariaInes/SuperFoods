@@ -6,21 +6,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".CrearProducto">
+        tools:context=".CrearProducto"
+        android:background="@color/backgroundBeige">
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
+            android:textColorHint="@color/colorTurquesa"
             android:id="@+id/nombreptxt" android:hint="Nombre Producto"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
+            android:textColorHint="@color/colorTurquesa"
             android:ems="10"
             android:id="@+id/desctxt" android:hint="Descripción"/>
     <EditText
             android:layout_width="match_parent"
+            android:textColorHint="@color/colorTurquesa"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
@@ -29,11 +33,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
+            android:textColorHint="@color/colorTurquesa"
             android:ems="10"
             android:id="@+id/contactotxt" android:hint="Tu correo de contacto"/>
     <Button
-            android:text="Button"
+            android:text="CREAR"
             android:layout_width="match_parent"
             android:onClick="Crear"
+            android:background="@color/colorVerde"
+            android:textColor="@android:color/white"
             android:layout_height="wrap_content" android:id="@+id/CrearB"/>
 </LinearLayout>

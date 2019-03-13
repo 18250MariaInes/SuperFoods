@@ -6,12 +6,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ShowProfileActivity"
-        android:orientation="vertical">
+        android:orientation="vertical"
+android:background="@color/backgroundBeige">
 
 
     <TextView
             android:text="Nombre:"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorTurquesa"
+            android:textStyle="bold"
+            android:scrollbarSize="22dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/TextViewN"/>
     <TextView
@@ -21,9 +24,10 @@
             android:layout_height="wrap_content" android:id="@+id/txtNombre"/>
     <TextView
             android:text="Apellido:"
-            android:textColor="@android:color/black"
+            android:textColor="@color/colorTurquesa"
             android:layout_width="match_parent"
-
+            android:textStyle="bold"
+            android:scrollbarSize="22dp"
             android:layout_height="wrap_content" android:id="@+id/TextViewA"/>
     <TextView
             android:text="TextView"
@@ -33,9 +37,13 @@
     <Button
             android:text="Ver tus recetas"
             android:layout_width="match_parent"
+            android:background="@color/colorVerde"
+            android:textColor="@android:color/white"
             android:layout_height="wrap_content" android:id="@+id/VerRecetas" android:onClick="mostrarRecetas"/>
     <Button
             android:text="Guardar nueva receta"
             android:layout_width="match_parent"
+            android:background="@color/colorVerde"
+            android:textColor="@android:color/white"
             android:layout_height="wrap_content" android:id="@+id/GuardaReceta" android:onClick="crearReceta"/>
 </LinearLayout>

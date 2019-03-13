@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ForgotPassActivity">
+        tools:context=".ForgotPassActivity"
+android:background="@color/backgroundBeige">
 
     <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
@@ -14,7 +15,8 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:indeterminate="true"
-            android:id="@+id/progressBar3"/>
+            android:id="@+id/progressBar3"
+    android:background="@color/backgroundBeige"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,7 +25,7 @@
             android:id="@+id/txtEmail"/>
     <Button
             android:text="Enviar contraseña"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorVerde"
             android:textColor="@android:color/white"
             android:onClick="send"
             android:layout_width="match_parent"

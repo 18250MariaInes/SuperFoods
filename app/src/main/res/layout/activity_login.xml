@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".LoginActivity">
+        tools:context=".LoginActivity"
+android:background="@color/backgroundBeige">
 
     <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
@@ -38,6 +39,7 @@
             android:gravity="center"
             android:layout_margin="10dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorTurquesa"
             />
     <TextView
             android:text="¿Aún no estás registrado?"
@@ -46,11 +48,12 @@
             android:gravity="center"
             android:layout_margin="10dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/colorTurquesa"
             />
 
     <Button
             android:onClick="login"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorVerde"
             android:textColor="@android:color/white"
             android:text="Iniciar sesión"
             android:layout_width="match_parent"

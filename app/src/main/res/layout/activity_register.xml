@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".RegisterActivity"
-        android:orientation="vertical">
+        android:orientation="vertical"
+android:background="@color/backgroundBeige">
 
     <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
@@ -14,13 +15,15 @@
             android:layout_height="wrap_content"
             android:indeterminate="true"
             android:visibility="gone"
-            android:id="@+id/progressBar"/>
+            android:id="@+id/progressBar"
+    android:background="@color/backgroundBeige"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
             android:hint="Nombre"
+            android:textColorHint="@color/colorTurquesa"
             android:layout_margin="10dp"
             android:id="@+id/txtName"/>
     <EditText
@@ -30,6 +33,7 @@
             android:ems="10"
             android:hint="Apellido"
             android:layout_margin="10dp"
+            android:textColorHint="@color/colorTurquesa"
             android:id="@+id/txtLastName"/>
     <EditText
             android:layout_width="match_parent"
@@ -38,6 +42,7 @@
             android:ems="10"
             android:hint="Correo"
             android:layout_margin="10dp"
+            android:textColorHint="@color/colorTurquesa"
             android:id="@+id/txtEmail"/>
     <EditText
             android:layout_width="match_parent"
@@ -45,12 +50,13 @@
             android:inputType="textPassword"
             android:ems="10"
             android:hint="Contraseña"
+            android:textColorHint="@color/colorTurquesa"
             android:layout_margin="10dp"
             android:id="@+id/txtPassword"/>
     <Button
             android:onClick="register"
             android:text="Crear Cuenta"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorVerde"
             android:textColor="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/button"/>
