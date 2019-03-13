@@ -13,20 +13,26 @@ android:background="@color/backgroundBeige">
             android:text="Nombre"
             android:textColor="@color/colorTurquesa"
             android:textStyle="bold"
-            android:textSize="22dp"
+            android:textSize="32dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/nombretxt"/>
     <TextView
             android:text="Descripción"
             android:textStyle=""
+            android:textSize="32dp"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/desctxt"/>
     <TextView
             android:text="Precio"
+            android:textSize="32dp"
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/preciotxt"/>
     <TextView
             android:text="Contacto"
             android:layout_width="match_parent"
+            android:textSize="32dp"
+            android:gravity="center"
             android:layout_height="wrap_content" android:id="@+id/contactotxt"/>
 </LinearLayout>
