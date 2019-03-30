@@ -8,34 +8,50 @@
         android:orientation="vertical"
         tools:context=".CrearProducto"
         android:background="@color/backgroundBeige">
+    <TextView
+            android:text="Nombre de producto:"
+            android:layout_width="match_parent"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_height="wrap_content" android:id="@+id/textView2"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
+            android:textSize="25dp"
             android:ems="10"
             android:textColorHint="@color/colorTurquesa"
-            android:id="@+id/nombreptxt" android:hint="Nombre Producto"/>
+            android:id="@+id/nombreptxt"/>
+    <TextView
+            android:text="Descripción"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView3"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:textColorHint="@color/colorTurquesa"
             android:ems="10"
-            android:id="@+id/desctxt" android:hint="Descripción"/>
+            android:textSize="25dp"
+            android:id="@+id/desctxt" />
+    <TextView
+            android:text="Precio"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView4"/>
     <EditText
             android:layout_width="match_parent"
             android:textColorHint="@color/colorTurquesa"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
+            android:text="Q"
+            android:textSize="25dp"
             android:ems="10"
-            android:id="@+id/preciotxt" android:hint="QPrecio"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:textColorHint="@color/colorTurquesa"
-            android:ems="10"
-            android:id="@+id/contactotxt" android:hint="Tu correo de contacto"/>
+            android:id="@+id/preciotxt" />
+
     <Button
             android:text="CREAR"
             android:layout_width="match_parent"

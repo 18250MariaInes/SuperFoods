@@ -36,6 +36,7 @@ class ProductosRecyclerView (
         p0.content.text = note.precio
 
     }
+
     override fun getItemCount(): Int {
         return ProdList.size
     }

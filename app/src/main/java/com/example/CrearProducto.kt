@@ -34,7 +34,7 @@ class CrearProducto : AppCompatActivity() {
         txtnombre=findViewById(R.id.nombreptxt)
         txtdescripcion=findViewById(R.id.desctxt)
         txtprecio=findViewById(R.id.preciotxt)
-        txtcontacto=findViewById(R.id.contactotxt)
+        //txtcontacto=findViewById(R.id.contactotxt)
         database= FirebaseFirestore.getInstance()
         auth= FirebaseAuth.getInstance()
     }
@@ -47,7 +47,9 @@ class CrearProducto : AppCompatActivity() {
         val name:String=txtnombre.text.toString()
         val lastName:String=txtdescripcion.text.toString()
         val email:String=txtprecio.text.toString()
-        val password:String=txtcontacto.text.toString()
+        //var password:String=txtcontacto.text.toString()
+        val correo = intent.getStringExtra("CORREO")
+        val password=correo
 
         if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(lastName)&&!TextUtils.isEmpty(email)&&!TextUtils.isEmpty(password)){
                         val prod=Producto(name, lastName, email, password).toMap()
