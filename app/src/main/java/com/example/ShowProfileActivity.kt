@@ -117,6 +117,11 @@ class ShowProfileActivity : AppCompatActivity() {
         }else if (id==R.id.Buscar_Productos){
             val intent = Intent(this, BuscarProductos::class.java)
             startActivity(intent)
+        }else if (id==R.id.Mis_Productos){
+            val correo = intent.getStringExtra("CORREO")
+            val intent = Intent(this, TodosMisProductos::class.java)
+            intent.putExtra("CORREO", correo)
+            startActivityForResult(intent,1)
         }
 
 

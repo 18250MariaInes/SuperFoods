@@ -38,6 +38,27 @@ class BuscarProductos : AppCompatActivity() {
             Log.e("SHOW",it.toObjects(User::class.java).size.toString())
 
         }}
+        database.collection("productos").get()
+            .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
+                if (documentSnapshots.isEmpty) {
+                   // Log.e("555555", "onSuccess: LIST EMPTY")
+                    return@OnSuccessListener
+                } else {
+                    val typ0s = documentSnapshots.toObjects(Producto::class.java)
+                    mAdapter = ProductosRecyclerView(typ0s, applicationContext, database!!)
+                    val mLayoutManager = LinearLayoutManager(applicationContext)
+                    mLayoutManager.orientation = LinearLayoutManager.VERTICAL
+                    productosList.layoutManager = mLayoutManager
+                    productosList.itemAnimator = DefaultItemAnimator()
+                    productosList.setHasFixedSize(true)
+                    productosList.adapter = mAdapter
+                    clickAdapter()
+                    //Log.e("55", "onSuccess: ")
+
+                }
+
+
+            })
     }
     fun buscarProducto(view: View){
         val name:String=txtproducto.text.toString()
@@ -74,14 +95,18 @@ class BuscarProductos : AppCompatActivity() {
     }
 
     fun crearProducto(view:View){
+        val correo = intent.getStringExtra("CORREO")
         val intent = Intent(this, CrearProducto::class.java)
-        startActivity(intent)
+        intent.putExtra("CORREO", correo)
+        startActivityForResult(intent, 1)
     }
     fun clickAdapter()
     {
         mAdapter!!.setOnItemClickListener(object :ProductosRecyclerView.onItemClickListener{
             override fun onItemClick(contact: Producto){
+                val correo = intent.getStringExtra("CORREO")
                 var intent= Intent(baseContext, MostrarProducto::class.java)
+                intent.putExtra("CORREO", correo)
                 intent.putExtra(MostrarProducto.EXTRA_NOMBREP, contact.nombre)
                 intent.putExtra(MostrarProducto.EXTRA_DESC, contact.descripcion)
                 intent.putExtra(MostrarProducto.EXTRA_PRECIO, contact.precio)
@@ -98,17 +123,6 @@ class BuscarProductos : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        /*if (item != null) {
-            mAdapter!!.setOnItemClickListener(object : RecyclerViewAdapter.onItemClickListener{
-                override fun onItemClick(contact: Receta){
-                    var intent= Intent(baseContext, MostrarReceta::class.java)
-                    intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
-                    intent.putExtra(MostrarReceta.EXTRA_NUMERO, contact.ingredientes)
-                    intent.putExtra(MostrarReceta.EXTRA_CORREO, contact.categoria)
-                    intent.putExtra(MostrarReceta.EXTRA_PRIORITY, contact.proceso)
-                    startActivityForResult(intent, 1)
-                }
-            })*/
         val id = item!!.getItemId()
 
         if (id == R.id.Perfil) {
@@ -123,6 +137,11 @@ class BuscarProductos : AppCompatActivity() {
             intent.putExtra("CORREO", correo)
             startActivityForResult(intent, 1)
             return true
+        }else if (id==R.id.Mis_Productos){
+            val correo = intent.getStringExtra("CORREO")
+            val intent = Intent(this, TodosMisProductos::class.java)
+            intent.putExtra("CORREO", correo)
+            startActivityForResult(intent,1)
         }
 
 

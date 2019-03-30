@@ -42,8 +42,11 @@ android:background="@color/backgroundBeige">
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:ems="10"
+            android:scrollbars="vertical"
+            android:minLines="6"
+            android:gravity="top|left"
             android:id="@+id/ingretxt"/>
     <TextView
             android:text="Proceso:"
@@ -52,9 +55,12 @@ android:background="@color/backgroundBeige">
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/proceso"/>
     <EditText
+            android:inputType="textMultiLine"
             android:layout_width="match_parent"
             android:layout_height="135dp"
-            android:inputType="textPersonName"
+            android:gravity="top|left"
+            android:minLines="6"
+            android:scrollbars="vertical"
             android:ems="10"
             android:id="@+id/procesotxt"/>
     <Button

@@ -25,7 +25,7 @@ class ProductosRecyclerView (
     init {
         for (i in ProdList)
         {
-            Log.e("LISTA",i.nombre)
+//            Log.e("LISTA",i.nombre)
         }
     }
     private var listener: onItemClickListener? = null

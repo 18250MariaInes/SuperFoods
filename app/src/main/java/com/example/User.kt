@@ -6,6 +6,7 @@ class User {
     var Nombre:String?=null
     var Correo:String?=null
     var recetas:ArrayList<Receta>?= arrayListOf()
+    var productos:ArrayList<Producto>?= arrayListOf()
 
     constructor(){}
 
@@ -20,6 +21,7 @@ class User {
         result.put("nombre", Nombre!!)
         result.put("correo", Correo!!)
         result.put("recetas", recetas!!)
+        result.put("productos",productos!!)
         return result
     }
 }

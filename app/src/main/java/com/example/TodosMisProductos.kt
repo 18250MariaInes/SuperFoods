@@ -8,25 +8,24 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import com.example.adapter.ProductosRecyclerView
+import com.example.adapter.MisProductosRV
 import com.example.superfoods.adapter.RecyclerViewAdapter
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.android.synthetic.main.activity_todas_recetas.*
+import kotlinx.android.synthetic.main.activity_todos_mis_productos.*
 
-class TodasRecetas : AppCompatActivity() {
-    private val TAG = "Mis Recetas"
-
-    private var mAdapter: RecyclerViewAdapter? = null
+class TodosMisProductos : AppCompatActivity() {
+    private var mAdapter: MisProductosRV? = null
     //private var mAdapterp: ProductosRecyclerView? = null
 
     private var us: FirebaseFirestore? = null
     private var firestoreListener: ListenerRegistration? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_todas_recetas)
+        setContentView(R.layout.activity_todos_mis_productos)
+
         val correo = intent.getStringExtra("CORREO")
         us = FirebaseFirestore.getInstance()
 
@@ -44,13 +43,13 @@ class TodasRecetas : AppCompatActivity() {
     }
     fun clickAdapter()
     {
-        mAdapter!!.setOnItemClickListener(object :RecyclerViewAdapter.onItemClickListener{
-            override fun onItemClick(contact: Receta){
-                var intent= Intent(baseContext, MostrarReceta::class.java)
-                intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
-                intent.putExtra(MostrarReceta.EXTRA_INGREDIENTES, contact.ingredientes)
-                intent.putExtra(MostrarReceta.EXTRA_CATEGORIA, contact.categoria)
-                intent.putExtra(MostrarReceta.EXTRA_PROCESO, contact.proceso)
+        mAdapter!!.setOnItemClickListener(object :MisProductosRV.onItemClickListener{
+            override fun onItemClick(contact: Producto){
+                var intent= Intent(baseContext, MostrarProducto::class.java)
+                intent.putExtra(MostrarProducto.EXTRA_NOMBREP, contact.nombre)
+                intent.putExtra(MostrarProducto.EXTRA_DESC, contact.descripcion)
+                intent.putExtra(MostrarProducto.EXTRA_PRECIO, contact.precio)
+                intent.putExtra(MostrarProducto.EXTRA_CONTACTO, contact.contacto)
                 startActivityForResult(intent, 1)
             }
         })
@@ -61,24 +60,24 @@ class TodasRecetas : AppCompatActivity() {
         mFirebaseFirestore.collection("users").whereEqualTo("correo", correo).get()
             .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
                 if (documentSnapshots.isEmpty) {
-                    Log.e(TAG, "onSuccess: LIST EMPTY")
+                    Log.e("hello", "onSuccess: LIST EMPTY")
                     return@OnSuccessListener
                 } else {
-                    val recetasList = mutableListOf<Receta>()
+                    val recetasList = mutableListOf<Producto>()
                     val types = documentSnapshots.toObjects(User::class.java)
-                    var recetas=types[0].recetas
+                    var recetas=types[0].productos
                     for (doc in recetas!!){
                         recetasList.add(doc)
                     }
-                    mAdapter = RecyclerViewAdapter(recetasList, applicationContext, us!!)
+                    mAdapter = MisProductosRV(recetasList, applicationContext, us!!)
                     val mLayoutManager = LinearLayoutManager(applicationContext)
                     mLayoutManager.orientation = LinearLayoutManager.VERTICAL
-                    RecetasList.layoutManager = mLayoutManager
-                    RecetasList.itemAnimator = DefaultItemAnimator()
-                    RecetasList.setHasFixedSize(true)
-                    RecetasList.adapter = mAdapter
+                    mProdList.layoutManager = mLayoutManager
+                    mProdList.itemAnimator = DefaultItemAnimator()
+                    mProdList.setHasFixedSize(true)
+                    mProdList.adapter = mAdapter
                     clickAdapter()
-                    Log.e(TAG, "onSuccess: " + types[0].Nombre!!)
+                    Log.e("hello", "onSuccess: " + types[0].Nombre!!)
 
                 }
 
@@ -88,13 +87,13 @@ class TodasRecetas : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item != null) {
-           mAdapter!!.setOnItemClickListener(object :RecyclerViewAdapter.onItemClickListener{
-                override fun onItemClick(contact: Receta){
-                    var intent= Intent(baseContext, MostrarReceta::class.java)
-                    intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
-                    intent.putExtra(MostrarReceta.EXTRA_INGREDIENTES, contact.ingredientes)
-                    intent.putExtra(MostrarReceta.EXTRA_CATEGORIA, contact.categoria)
-                    intent.putExtra(MostrarReceta.EXTRA_PROCESO, contact.proceso)
+            mAdapter!!.setOnItemClickListener(object :MisProductosRV.onItemClickListener{
+                override fun onItemClick(contact: Producto){
+                    var intent= Intent(baseContext, MostrarProducto::class.java)
+                    intent.putExtra(MostrarProducto.EXTRA_NOMBREP, contact.nombre)
+                    intent.putExtra(MostrarProducto.EXTRA_DESC, contact.descripcion)
+                    intent.putExtra(MostrarProducto.EXTRA_PRECIO, contact.precio)
+                    intent.putExtra(MostrarProducto.EXTRA_CONTACTO, contact.contacto)
                     startActivityForResult(intent, 1)
                 }
             })
@@ -107,19 +106,14 @@ class TodasRecetas : AppCompatActivity() {
                 startActivityForResult(intent, 1)
                 return true
             }else if (id == R.id.Mis_Recetas) {
-                /*val correo = intent.getStringExtra("CORREO")
+                val correo = intent.getStringExtra("CORREO")
                 val intent = Intent(applicationContext, TodasRecetas::class.java)
                 intent.putExtra("CORREO", correo)
                 startActivityForResult(intent, 1)
-                return true*/
+                return true
             }else if (id==R.id.Buscar_Productos){
                 val correo = intent.getStringExtra("CORREO")
                 val intent = Intent(this, BuscarProductos::class.java)
-                intent.putExtra("CORREO", correo)
-                startActivityForResult(intent,1)
-            }else if (id==R.id.Mis_Productos){
-                val correo = intent.getStringExtra("CORREO")
-                val intent = Intent(this, TodosMisProductos::class.java)
                 intent.putExtra("CORREO", correo)
                 startActivityForResult(intent,1)
             }
@@ -127,4 +121,5 @@ class TodasRecetas : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

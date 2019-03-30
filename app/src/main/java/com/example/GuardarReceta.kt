@@ -54,7 +54,7 @@ class GuardarReceta : AppCompatActivity() {
                     types[0].recetas!!.add(Receta(txtnombre.text.toString(), txtcategoria.text.toString(), txtingredientes.text.toString(), txtproceso.text
                         .toString()))
                     Log.e("oooo", "onSuccess: " + types[0].recetas!!.size!!+" "+ documentSnapshots.documents.get(0).id)
-                    val id=types[0].id
+                    //val id=types[0].id
 
                     auth= FirebaseAuth.getInstance()
                     val frankDocRef = us.collection("users").document(documentSnapshots.documents.get(0).id).update("recetas",types[0].recetas)

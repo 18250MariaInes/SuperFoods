@@ -5,6 +5,8 @@
           android:orderInCategory="100" app:showAsAction="never"/>
     <item android:id="@+id/Mis_Recetas" android:title="Mis Recetas"
           android:orderInCategory="100" app:showAsAction="never"/>
+    <item android:id="@+id/Mis_Productos" android:title="Mis Productos"
+          android:orderInCategory="100" app:showAsAction="never"/>
     <item android:id="@+id/Buscar_Productos" android:title="Buscar Productos"
           android:orderInCategory="100" app:showAsAction="never"/>
 </menu>
