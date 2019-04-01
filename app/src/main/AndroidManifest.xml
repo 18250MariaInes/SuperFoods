@@ -9,19 +9,26 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".TodosMisProductos">
+        <activity android:name=".TodosMisProductos"
+        android:label="Mis Productos">
         </activity>
-        <activity android:name=".MostrarProducto">
+        <activity android:name=".MostrarProducto"
+                  android:label="Mostar Producto">
         </activity>
-        <activity android:name=".CrearProducto">
+        <activity android:name=".CrearProducto"
+                  android:label="Producto Nuevo">
         </activity>
-        <activity android:name=".BuscarProductos">
+        <activity android:name=".BuscarProductos"
+                  android:label="Buscar Productos">
         </activity>
-        <activity android:name=".TodasRecetas">
+        <activity android:name=".TodasRecetas"
+                  android:label="Todas las Recetas">
         </activity>
-        <activity android:name=".MostrarReceta">
+        <activity android:name=".MostrarReceta"
+                  android:label="Mostrar Receta">
         </activity>
-        <activity android:name=".GuardarReceta">
+        <activity android:name=".GuardarReceta"
+                  android:label="Receta Nueva">
         </activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
@@ -30,23 +37,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+                  android:label="Superfoods">
         </activity>
-        <activity android:name=".RegisterActivity">
+        <activity android:name=".RegisterActivity"
+                  android:label="Crea una cuenta">
         </activity>
-        <activity android:name=".ForgotPassActivity">
+        <activity android:name=".ForgotPassActivity"
+                  android:label="Recuperacion de Contraseña">
         </activity>
-        <activity android:name=".ShowProfileActivity">
-        </activity>
-        <activity
-                android:name=".Nav"
-                android:label="@string/title_activity_nav"
-                android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-                android:name=".Mis_Recetas"
-                android:label="@string/title_activity_mis__recetas"
-                android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".ShowProfileActivity"
+                  android:label="Tu perfil">
         </activity>
     </application>
 

@@ -38,7 +38,7 @@ android:background="@color/backgroundBeige">
     <TextView
 
             android:layout_width="match_parent"
-            android:gravity="center"
+            android:gravity="left"
             android:layout_height="wrap_content" android:id="@+id/ingtxt"/>
     <TextView
             android:text="Proceso:"
@@ -47,7 +47,7 @@ android:background="@color/backgroundBeige">
             android:textStyle="bold"
             android:layout_height="wrap_content" android:id="@+id/proceso"/>
     <TextView
-            android:gravity="center"
+            android:gravity="left"
             android:layout_width="match_parent"
             android:layout_height="163dp" android:id="@+id/proctxt"/>
 

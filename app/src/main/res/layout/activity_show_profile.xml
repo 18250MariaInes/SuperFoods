@@ -23,7 +23,7 @@ android:background="@color/backgroundBeige">
             android:gravity="center"
             android:layout_height="wrap_content" android:id="@+id/txtNombre"/>
     <TextView
-            android:text="Apellido:"
+            android:text="Correo:"
             android:textColor="@color/colorTurquesa"
             android:layout_width="match_parent"
             android:textStyle="bold"
