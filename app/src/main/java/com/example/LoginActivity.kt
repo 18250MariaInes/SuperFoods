@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this, "Error al iniciar sesión (autenticación)", Toast.LENGTH_LONG).show()
                     }
                 }
-            Log.e("UUDI",auth.currentUser?.uid)
+//            Log.e("UUDI",auth.currentUser?.uid)
         }
     }
     private fun action(){
