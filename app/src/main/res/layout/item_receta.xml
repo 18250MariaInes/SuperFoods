@@ -8,29 +8,43 @@
               android:weightSum="10"
               android:background="@color/backgroundBeige">
 
-    <LinearLayout
+    <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="9"
             android:orientation="vertical"
     android:background="@color/backgroundBeige">
 
+        <ImageView
+                android:id="@+id/itemImg"
+                android:src="@drawable/ingredients"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+
         <TextView
                 android:id="@+id/txtnombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/itemImg"
+                android:layout_toEndOf="@+id/itemImg"
                 android:padding="5dp"
                 android:text="Nombre"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp" />
 
         <TextView
                 android:id="@+id/txtcategoria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/txtnombre"
+                android:layout_alignLeft="@+id/txtnombre"
+                android:layout_alignStart="@+id/txtnombre"
                 android:padding="5dp"
                 android:textStyle="italic"
                 android:text="Categoria" />
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
