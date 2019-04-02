@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_mostrar_receta.*
 
 
 class MostrarReceta : AppCompatActivity() {
-    private lateinit var txtnombre: TextView
+    private lateinit var txtnombre: EditText
     private lateinit var txtcateg: EditText
     private lateinit var txtingredientes: EditText
     private lateinit var txtproceso: EditText
@@ -54,11 +54,16 @@ class MostrarReceta : AppCompatActivity() {
     fun guardarN(view: View){
         nombre=intent.getStringExtra(EXTRA_NOMBRE)
         val correo = intent.getStringExtra("CORREO")
+        val pos=intent.getIntExtra("pos",0)
+        Log.e("hello",pos.toString())
         us = FirebaseFirestore.getInstance()
-        //var Nombren=nombretxt.text.toString()
+        var Nombren=nombretxt.text.toString()
         var catn=categtxt.text.toString()
         var ingn=ingtxt.text.toString()
         var procn=proctxt.text.toString()
+        var nn=intent.getStringExtra(EXTRA_NOMBRE)
+        val old=Receta(intent.getStringExtra(EXTRA_NOMBRE), intent.getStringExtra(EXTRA_CATEGORIA),intent.getStringExtra(EXTRA_INGREDIENTES), intent.getStringExtra(EXTRA_PROCESO))
+//        Log.e("UUDI",correo)
         us!!.collection("users").whereEqualTo("correo", correo).get()
             .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
                 if (documentSnapshots.isEmpty) {
@@ -67,24 +72,30 @@ class MostrarReceta : AppCompatActivity() {
                 } else {
                     val types = documentSnapshots.toObjects(User::class.java)
                     var recetas=types[0].recetas
+                   /* val array: ArrayList<Receta> = arrayListOf()
                     for (doc in recetas!!){
-                        if (doc.nombre==nombre){
-                            recetas.remove(doc)
+                        if (doc.nombre==nn){
+                            array.add(doc)
                         }
                     }
-                    recetas!!.add(Receta(nombre,catn,ingn,procn))
-
+                    array.forEach {doc->
+                        recetas.remove(doc)
+                    }
+                    agregar(recetas,Receta(nombre,catn,ingn,procn) )*/
+                    recetas!!.set(pos,Receta(Nombren,catn,ingn,procn) )
                     val frankDocRef = us!!.collection("users").document(documentSnapshots.documents.get(0).id).update("recetas",types[0].recetas)
-
+                    goback()
                 }
-
-
             })
+
+
+    }
+    fun goback(){
+        val correo = intent.getStringExtra("CORREO")
         val intent = Intent(applicationContext, TodasRecetas::class.java)
         intent.putExtra("CORREO", correo)
         startActivityForResult(intent, 1)
-
+        finish()
     }
-
 }
 

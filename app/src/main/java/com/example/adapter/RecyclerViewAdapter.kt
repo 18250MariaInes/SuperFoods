@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.example.superfoods.R
 import com.example.superfoods.Receta
 import com.google.firebase.firestore.FirebaseFirestore
+import java.text.FieldPosition
 
 class RecyclerViewAdapter(
     private val recetasList: MutableList<Receta>,
@@ -43,13 +44,13 @@ class RecyclerViewAdapter(
             title = view.findViewById(R.id.txtnombre)
             content = view.findViewById(R.id.txtcategoria)
             view.setOnClickListener {
-                listener!!.onItemClick(recetasList.get(adapterPosition))
+                listener!!.onItemClick(recetasList.get(adapterPosition),adapterPosition)
             }
         }
     }
 
     interface onItemClickListener {
-        fun onItemClick(contact: Receta)
+        fun onItemClick(contact: Receta,position :Int)
     }
 
     fun setOnItemClickListener(listener: onItemClickListener) {

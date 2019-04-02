@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.android.synthetic.main.activity_todas_recetas.*
+import java.text.FieldPosition
 import java.util.ArrayList
 
 class TodasRecetas : AppCompatActivity() {
@@ -27,6 +28,8 @@ class TodasRecetas : AppCompatActivity() {
     //private var mAdapterp: ProductosRecyclerView? = null
 
     private var us: FirebaseFirestore? = null
+
+
     private var firestoreListener: ListenerRegistration? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,23 +78,32 @@ class TodasRecetas : AppCompatActivity() {
 
         return super.onCreateOptionsMenu(menu)
     }
-    override fun onDestroy() {
-        super.onDestroy()
 
-        firestoreListener!!.remove()
+    override fun onStop() {
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+
+
+
+        super.onDestroy()
     }
     fun clickAdapter()
     {
         mAdapter!!.setOnItemClickListener(object :RecyclerViewAdapter.onItemClickListener{
-            override fun onItemClick(contact: Receta){
+            override fun onItemClick(contact: Receta,position:Int){
                 val correo = intent.getStringExtra("CORREO")
+
                 var intent= Intent(baseContext, MostrarReceta::class.java)
                 intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
                 intent.putExtra(MostrarReceta.EXTRA_INGREDIENTES, contact.ingredientes)
                 intent.putExtra(MostrarReceta.EXTRA_CATEGORIA, contact.categoria)
                 intent.putExtra(MostrarReceta.EXTRA_PROCESO, contact.proceso)
-                intent.putExtra(MostrarReceta.EXTRA_CORREO, correo)
+                intent.putExtra("CORREO", correo)
+                intent.putExtra("pos",position)
                 startActivityForResult(intent, 1)
+                finish()
             }
         })
     }
@@ -129,13 +141,17 @@ class TodasRecetas : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item != null) {
            mAdapter!!.setOnItemClickListener(object :RecyclerViewAdapter.onItemClickListener{
-                override fun onItemClick(contact: Receta){
+                override fun onItemClick(contact: Receta, position: Int){
+                    val correo = intent.getStringExtra("CORREO")
                     var intent= Intent(baseContext, MostrarReceta::class.java)
                     intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
                     intent.putExtra(MostrarReceta.EXTRA_INGREDIENTES, contact.ingredientes)
                     intent.putExtra(MostrarReceta.EXTRA_CATEGORIA, contact.categoria)
                     intent.putExtra(MostrarReceta.EXTRA_PROCESO, contact.proceso)
+                    intent.putExtra("CORREO", correo)
                     startActivityForResult(intent, 1)
+                    intent.putExtra("pos",position)
+                    finish()
                 }
             })
             val id = item!!.getItemId()

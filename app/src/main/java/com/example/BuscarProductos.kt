@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
+import android.widget.Toast
 import com.example.adapter.ProductosRecyclerView
 import com.example.superfoods.GuardarReceta
 import com.example.superfoods.R
@@ -70,6 +71,7 @@ class BuscarProductos : AppCompatActivity() {
         database.collection("productos").whereEqualTo("nombre", name).get()
             .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
                 if (documentSnapshots.isEmpty) {
+                    Toast.makeText(baseContext, "Producto no disponible", Toast.LENGTH_SHORT).show()
                     Log.e("555555", "onSuccess: LIST EMPTY")
                     return@OnSuccessListener
                 } else {
@@ -87,11 +89,7 @@ class BuscarProductos : AppCompatActivity() {
                     Log.e("55", "onSuccess: ")
 
                 }
-
-
             })
-
-
     }
 
     fun crearProducto(view:View){
