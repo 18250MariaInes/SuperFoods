@@ -31,6 +31,9 @@ class RecyclerViewAdapter(
     override fun getItemCount(): Int {
         return recetasList.size
     }
+    /*fun getRecetaAt(position: Int): Receta {
+        return getItem(position)
+    }*/
 
     inner class ViewHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
         internal var title: TextView

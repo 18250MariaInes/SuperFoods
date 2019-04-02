@@ -5,9 +5,12 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.example.adapter.MisProductosRV
 import com.example.superfoods.adapter.RecyclerViewAdapter
 import com.google.android.gms.tasks.OnSuccessListener
@@ -21,6 +24,7 @@ class TodosMisProductos : AppCompatActivity() {
     //private var mAdapterp: ProductosRecyclerView? = null
 
     private var us: FirebaseFirestore? = null
+    private var selec: Producto? = null
     private var firestoreListener: ListenerRegistration? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +34,37 @@ class TodosMisProductos : AppCompatActivity() {
         us = FirebaseFirestore.getInstance()
 
         loadAllRecetas(us!!)
+
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT.or(ItemTouchHelper.RIGHT)) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                //noteViewModel.delete(adapter.getNoteAt(viewHolder.adapterPosition))
+                us!!.collection("users").whereEqualTo("correo", correo).get()
+                    .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
+                        if (documentSnapshots.isEmpty) {
+                            Log.e("hello", "onSuccess: LIST EMPTY")
+                            return@OnSuccessListener
+                        } else {
+                            val types = documentSnapshots.toObjects(User::class.java)
+                            var recetas=types[0].productos
+                            selec= recetas!!.get(viewHolder.adapterPosition)
+                            recetas!!.removeAt(viewHolder.adapterPosition)
+                            val frankDocRef = us!!.collection("users").document(documentSnapshots.documents.get(0).id).update("productos",types[0].productos)
+                           remove(correo)
+                            loadAllRecetas(us!!)
+                        }
+                    })
+                Toast.makeText(baseContext, "Se ha eliminado producto exitosamente", Toast.LENGTH_SHORT).show()
+            }
+        }
+        ).attachToRecyclerView(mProdList)
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_opciones, menu)
@@ -40,6 +75,19 @@ class TodosMisProductos : AppCompatActivity() {
         super.onDestroy()
 
         firestoreListener!!.remove()
+    }
+    fun remove(correo:String){
+        us!!.collection("productos").whereEqualTo("contacto", correo).whereEqualTo("nombre", selec!!.nombre).get()
+            .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
+                if (documentSnapshots.isEmpty) {
+                    Log.e("hello", "onSuccess: LIST EMPTY")
+                    return@OnSuccessListener
+                } else {
+
+                    val frankDocRef = us!!.collection("productos").document(documentSnapshots.documents.get(0).id).delete()
+
+                }
+            })
     }
     fun clickAdapter()
     {
@@ -80,10 +128,7 @@ class TodosMisProductos : AppCompatActivity() {
                     Log.e("hello", "onSuccess: " + types[0].Nombre!!)
 
                 }
-
-
             })
-
     }
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item != null) {
@@ -117,9 +162,7 @@ class TodosMisProductos : AppCompatActivity() {
                 intent.putExtra("CORREO", correo)
                 startActivityForResult(intent,1)
             }
-
         }
         return super.onOptionsItemSelected(item)
     }
-
 }

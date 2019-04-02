@@ -58,6 +58,7 @@ class GuardarReceta : AppCompatActivity() {
 
                     auth= FirebaseAuth.getInstance()
                     val frankDocRef = us.collection("users").document(documentSnapshots.documents.get(0).id).update("recetas",types[0].recetas)
+                    //val frankDocRef = us.collection("users").document(documentSnapshots.documents.get(0).id).delete("recetas",types[0].recetas)
 
                 }
             }).addOnCompleteListener(OnCompleteListener {task->

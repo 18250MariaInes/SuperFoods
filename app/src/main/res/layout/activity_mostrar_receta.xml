@@ -14,10 +14,12 @@ android:background="@color/backgroundBeige">
             android:layout_width="match_parent"
             android:textColor="@color/colorTurquesa"
             android:textStyle="bold"
+
             android:layout_height="wrap_content" android:id="@+id/nombre"/>
     <TextView
             android:layout_width="match_parent"
             android:gravity="center"
+            android:ems="10"
             android:layout_height="wrap_content" android:id="@+id/nombretxt"/>
     <TextView
             android:text="Categoría"
@@ -25,20 +27,22 @@ android:background="@color/backgroundBeige">
             android:textColor="@color/colorTurquesa"
             android:textStyle="bold"
             android:layout_height="wrap_content" android:id="@+id/Categ"/>
-    <TextView
+    <EditText
             android:gravity="center"
+            android:ems="10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/categtxt"/>
     <TextView
             android:text="Ingredientes:"
             android:layout_width="match_parent"
             android:textColor="@color/colorTurquesa"
+
             android:textStyle="bold"
             android:layout_height="wrap_content" android:id="@+id/ingredientes"/>
-    <TextView
-
+    <EditText
             android:layout_width="match_parent"
             android:gravity="left"
+            android:ems="10"
             android:layout_height="wrap_content" android:id="@+id/ingtxt"/>
     <TextView
             android:text="Proceso:"
@@ -46,9 +50,14 @@ android:background="@color/backgroundBeige">
             android:textColor="@color/colorTurquesa"
             android:textStyle="bold"
             android:layout_height="wrap_content" android:id="@+id/proceso"/>
-    <TextView
+    <EditText
             android:gravity="left"
             android:layout_width="match_parent"
+            android:ems="10"
             android:layout_height="163dp" android:id="@+id/proctxt"/>
+    <Button
+            android:text="Guardar Cambios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/guardarC" android:onClick="guardarN"/>
 
 </LinearLayout>

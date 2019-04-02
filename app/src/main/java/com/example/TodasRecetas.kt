@@ -17,8 +17,10 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.android.synthetic.main.activity_todas_recetas.*
+import java.util.ArrayList
 
 class TodasRecetas : AppCompatActivity() {
+    var correop = ""
     private val TAG = "Mis Recetas"
 
     private var mAdapter: RecyclerViewAdapter? = null
@@ -31,6 +33,7 @@ class TodasRecetas : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todas_recetas)
         val correo = intent.getStringExtra("CORREO")
+        //correop=correo
         us = FirebaseFirestore.getInstance()
 
         loadAllRecetas(us!!)
@@ -45,7 +48,23 @@ class TodasRecetas : AppCompatActivity() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 //noteViewModel.delete(adapter.getNoteAt(viewHolder.adapterPosition))
-                Toast.makeText(baseContext, "has hecho swipe", Toast.LENGTH_SHORT).show()
+                us!!.collection("users").whereEqualTo("correo", correo).get()
+                    .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
+                        if (documentSnapshots.isEmpty) {
+                            Log.e(TAG, "onSuccess: LIST EMPTY")
+                            return@OnSuccessListener
+                        } else {
+                            val types = documentSnapshots.toObjects(User::class.java)
+                            var recetas=types[0].recetas
+                            recetas!!.removeAt(viewHolder.adapterPosition)
+                            val frankDocRef = us!!.collection("users").document(documentSnapshots.documents.get(0).id).update("recetas",types[0].recetas)
+                            loadAllRecetas(us!!)
+                        }
+
+
+                    })
+
+                Toast.makeText(baseContext, "Se ha eliminado receta exitosamente", Toast.LENGTH_SHORT).show()
             }
         }
         ).attachToRecyclerView(RecetasList)
@@ -65,11 +84,13 @@ class TodasRecetas : AppCompatActivity() {
     {
         mAdapter!!.setOnItemClickListener(object :RecyclerViewAdapter.onItemClickListener{
             override fun onItemClick(contact: Receta){
+                val correo = intent.getStringExtra("CORREO")
                 var intent= Intent(baseContext, MostrarReceta::class.java)
                 intent.putExtra(MostrarReceta.EXTRA_NOMBRE, contact.nombre)
                 intent.putExtra(MostrarReceta.EXTRA_INGREDIENTES, contact.ingredientes)
                 intent.putExtra(MostrarReceta.EXTRA_CATEGORIA, contact.categoria)
                 intent.putExtra(MostrarReceta.EXTRA_PROCESO, contact.proceso)
+                intent.putExtra(MostrarReceta.EXTRA_CORREO, correo)
                 startActivityForResult(intent, 1)
             }
         })
