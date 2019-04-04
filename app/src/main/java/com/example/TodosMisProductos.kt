@@ -105,7 +105,7 @@ class TodosMisProductos : AppCompatActivity() {
 
     fun loadAllRecetas(mFirebaseFirestore: FirebaseFirestore){
         val correo = intent.getStringExtra("CORREO")
-        mFirebaseFirestore.collection("users").whereEqualTo("correo", correo).get()
+        mFirebaseFirestore.collection("users").whereEqualTo("correo", correo).get()//users
             .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
                 if (documentSnapshots.isEmpty) {
                     Log.e("hello", "onSuccess: LIST EMPTY")

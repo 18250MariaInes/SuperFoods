@@ -1,8 +1,11 @@
 package com.example.superfoods
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
@@ -16,6 +19,9 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_crear_producto.*
+import java.util.*
 
 class CrearProducto : AppCompatActivity() {
     private lateinit var txtnombre: EditText
@@ -37,6 +43,29 @@ class CrearProducto : AppCompatActivity() {
         //txtcontacto=findViewById(R.id.contactotxt)
         database= FirebaseFirestore.getInstance()
         auth= FirebaseAuth.getInstance()
+        imagenProd.setOnClickListener {
+            //Log.e("haha","funcionaaaa")
+            val PICK_PHOTO_CODE = 1046
+            val intent = Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            )
+            intent.type="image/*"
+            startActivityForResult(intent,PICK_PHOTO_CODE)
+
+        }
+    }
+    var selectedPhotoUri:Uri?=null
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if ( data !=null){
+            Log.e("ssss","entre en selec "+data.data)
+
+             selectedPhotoUri= data.data
+            Log.e("SSS",selectedPhotoUri.toString())
+            val bitmap= MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
+            imagenProd.setImageBitmap(bitmap)
+        }
     }
 
     fun Crear(view:View){
@@ -90,11 +119,30 @@ class CrearProducto : AppCompatActivity() {
                         val frankDocRef = us.collection("users").document(documentSnapshots.documents.get(0).id).update("productos",types[0].productos)
 
                     }
+                    uploadDB()
                 })
+            //uploadDB()
             action()
 
         }
 
+
+    }
+    private fun uploadDB():String {
+        if (selectedPhotoUri==null) return "holo"
+        Log.e("LLEGO","DB")
+        val filename= UUID.randomUUID().toString()
+        Log.e("LLEGO",filename)
+        val ref=FirebaseStorage.getInstance().getReference("/images/$filename")
+
+        ref.putFile(selectedPhotoUri!!)
+            .addOnSuccessListener {
+                Log.e("success","")
+            }.addOnFailureListener { e ->
+                Log.e("FALLO",e.toString())
+                e.printStackTrace()
+            }
+        return filename
 
     }
     private fun action(){

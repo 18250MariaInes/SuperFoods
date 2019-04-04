@@ -35,4 +35,8 @@ android:background="@color/backgroundBeige">
             android:textSize="32dp"
             android:gravity="center"
             android:layout_height="wrap_content" android:id="@+id/contactotxt"/>
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="273dp" app:srcCompat="@android:drawable/ic_menu_gallery"
+            android:id="@+id/imagenProd"/>
 </LinearLayout>

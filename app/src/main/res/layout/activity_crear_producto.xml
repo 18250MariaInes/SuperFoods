@@ -52,6 +52,10 @@
             android:ems="10"
             android:id="@+id/preciotxt" />
 
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="178dp" app:srcCompat="@android:drawable/ic_menu_add"
+            android:id="@+id/imagenProd"/>
     <Button
             android:text="CREAR"
             android:layout_width="match_parent"

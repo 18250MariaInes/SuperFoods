@@ -11,6 +11,7 @@ class MostrarProducto : AppCompatActivity() {
     private lateinit var txtdescripcion: TextView
     private lateinit var txtprecio: TextView
     private lateinit var txtcontacto: TextView
+    var filpath: Uri? = null
     companion object {
         const val EXTRA_NOMBREP = "com.example.maria.laboratorio7.EXTRA_NOMBREP"
         const val EXTRA_DESC = "com.example.maria.laboratorio7.EXTRA_DESC"
