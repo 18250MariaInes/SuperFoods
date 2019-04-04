@@ -6,4 +6,6 @@
     <color name="backgroundBeige">#FDF9EA</color>
     <color name="colorVerde">#86B37D</color>
     <color name="colorTurquesa">#2FADC1</color>
+    <color name="circleBorder">#30FFFFFF</color>
+    <color name="white">#FFFFFF</color>
 </resources>
