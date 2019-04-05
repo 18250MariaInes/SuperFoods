@@ -5,6 +5,7 @@ import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.storage.FirebaseStorage
@@ -33,10 +34,13 @@ class MostrarProducto : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mostrar_producto)
         var id=intent.getStringExtra(EXTRA_IMG)
-        var dir="images/"+id+".jpg"//gs://superfoods-24093.appspot.com/
+        var dir="https://firebasestorage.googleapis.com/v0/b/superfoods-24093.appspot.com/o/images%2F"+id+"?alt=media&token=f7f15ebe-d6eb-4259-a7e9-952b107cb3e4"//gs://superfoods-24093.appspot.com/
         Log.e("mostrarProducto", dir)
-        imgprod=findViewById(R.id.imagenProd)
-        val ref= FirebaseStorage.getInstance().getReference().child(dir)
+        //imgprod=findViewById(R.id.imagenProd)
+        val myWebView: WebView = findViewById(R.id.wb)
+        myWebView.setInitialScale(150)
+        myWebView.loadUrl(dir)
+       /* val ref= FirebaseStorage.getInstance().getReference().child(dir)
         //imgprod.setImageBitmap(ref)
         //var islandRef = ref.child(dir)
         val ONE_MEGABYTE: Long = 1024 * 1024
@@ -44,7 +48,7 @@ class MostrarProducto : AppCompatActivity() {
             //imgprod.setImageURI(ref)
         }.addOnFailureListener {
             // Handle any errors
-        }
+        }*/
 
         txtnombre = findViewById(R.id.nombretxt)
 
