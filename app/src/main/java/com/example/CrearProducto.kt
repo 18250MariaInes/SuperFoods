@@ -81,7 +81,8 @@ class CrearProducto : AppCompatActivity() {
         val password=correo
 
         if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(lastName)&&!TextUtils.isEmpty(email)&&!TextUtils.isEmpty(password)){
-                        val prod=Producto(name, lastName, email, password).toMap()
+                        var img=uploadDB()
+                        val prod=Producto(name, lastName, email, password,img ).toMap()
                         database!!.collection("productos")
                             .add(prod)
                             .addOnSuccessListener { documentReference ->
@@ -109,9 +110,10 @@ class CrearProducto : AppCompatActivity() {
 
                         return@OnSuccessListener
                     } else {
+
                         documentSnapshots.documents.get(0)
                         val types = documentSnapshots.toObjects(User::class.java)
-                        types[0].productos!!.add(Producto(name, lastName ,email ,password))
+                        types[0].productos!!.add(Producto(name, lastName ,email ,password, img))
                         //Log.e("oooo", "onSuccess: " + types[0].productos!!.size!!+" "+ documentSnapshots.documents.get(0).id)
                         //val id=types[0].id
 
@@ -119,7 +121,7 @@ class CrearProducto : AppCompatActivity() {
                         val frankDocRef = us.collection("users").document(documentSnapshots.documents.get(0).id).update("productos",types[0].productos)
 
                     }
-                    uploadDB()
+                    //uploadDB()
                 })
             //uploadDB()
             action()

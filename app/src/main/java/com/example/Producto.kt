@@ -7,12 +7,14 @@ class Producto {
     var descripcion:String?=null
     var precio:String?=null
     var contacto:String?=null
+    var img:String?=null
 
-    constructor(nombrep:String, descripcion:String, precio:String, contacto:String){
+    constructor(nombrep:String, descripcion:String, precio:String, contacto:String, img:String){
         this.nombre=nombrep
         this.descripcion=descripcion
         this.precio=precio
         this.contacto=contacto
+        this.img=img
 
     }
     constructor(){}
@@ -22,6 +24,7 @@ class Producto {
         result.put("descripcion", descripcion!!)
         result.put("precio", precio!!)
         result.put("contacto", contacto!!)
+        result.put ("img", img!!)
         return result
     }
 

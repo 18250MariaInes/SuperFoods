@@ -98,6 +98,7 @@ class TodosMisProductos : AppCompatActivity() {
                 intent.putExtra(MostrarProducto.EXTRA_DESC, contact.descripcion)
                 intent.putExtra(MostrarProducto.EXTRA_PRECIO, contact.precio)
                 intent.putExtra(MostrarProducto.EXTRA_CONTACTO, contact.contacto)
+                intent.putExtra(MostrarProducto.EXTRA_IMG, contact.img)
                 startActivityForResult(intent, 1)
             }
         })
@@ -139,6 +140,7 @@ class TodosMisProductos : AppCompatActivity() {
                     intent.putExtra(MostrarProducto.EXTRA_DESC, contact.descripcion)
                     intent.putExtra(MostrarProducto.EXTRA_PRECIO, contact.precio)
                     intent.putExtra(MostrarProducto.EXTRA_CONTACTO, contact.contacto)
+                    intent.putExtra(MostrarProducto.EXTRA_IMG, contact.img)
                     startActivityForResult(intent, 1)
                 }
             })

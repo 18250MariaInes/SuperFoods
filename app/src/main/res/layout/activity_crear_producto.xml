@@ -31,7 +31,7 @@
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:textColorHint="@color/colorTurquesa"
             android:ems="10"
             android:textSize="25dp"

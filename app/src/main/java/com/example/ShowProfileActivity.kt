@@ -103,11 +103,11 @@ class ShowProfileActivity : AppCompatActivity() {
         val id = item!!.getItemId()
 
         if (id == R.id.Perfil) {
-            val correo = intent.getStringExtra("CORREO")
+            /*val correo = intent.getStringExtra("CORREO")
             val intent = Intent(applicationContext, ShowProfileActivity::class.java)
             intent.putExtra("CORREO", correo)
             startActivityForResult(intent, 1)
-            return true
+            return true*/
         }else if (id == R.id.Mis_Recetas) {
             val correo = intent.getStringExtra("CORREO")
             val intent = Intent(applicationContext, TodasRecetas::class.java)
