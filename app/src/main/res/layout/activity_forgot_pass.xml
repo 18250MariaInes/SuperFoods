@@ -5,9 +5,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
         tools:context=".ForgotPassActivity"
-android:background="@color/backgroundBeige">
+        android:background="@color/backgroundBeige">
 
     <ProgressBar
             style="?android:attr/progressBarStyleHorizontal"
@@ -16,18 +18,54 @@ android:background="@color/backgroundBeige">
             android:visibility="gone"
             android:indeterminate="true"
             android:id="@+id/progressBar3"
-    android:background="@color/backgroundBeige"/>
-    <EditText
-            android:layout_width="match_parent"
+            android:background="@color/backgroundBeige"/>
+
+    <ImageView
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/logo" />
+
+    <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="¿Olvidaste la contraseña?"
+            android:textColor="@color/colorTurquesa"
+            android:textSize="20dp" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="Para enviarte las instrucciones de recuperacion\nnecesitamos que ingreses tu correo registrado"
+            android:textColor="@color/colorTurquesa"
+            android:textSize="14dp" />
+
+
+    <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
             android:inputType="textPersonName"
-            android:ems="10"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:hint="Email"
+            android:textColor="@color/colorTurquesa"
             android:id="@+id/txtEmail"/>
     <Button
-            android:text="Enviar contraseña"
+            android:text="Recuperar Contraseña"
             android:background="@color/colorVerde"
             android:textColor="@android:color/white"
             android:onClick="send"
             android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
             android:layout_height="wrap_content" android:id="@+id/button3"/>
+    
 </LinearLayout>
