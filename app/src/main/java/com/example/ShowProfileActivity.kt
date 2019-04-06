@@ -81,6 +81,29 @@ class ShowProfileActivity : AppCompatActivity() {
         startActivityForResult(intent, 1)
         finish()
     }
+    fun misProductos(view: View){
+        val correo = intent.getStringExtra("CORREO")
+        val intent = Intent(applicationContext, TodosMisProductos::class.java)
+        intent.putExtra("CORREO", correo)
+        startActivityForResult(intent, 1)
+        finish()
+    }
+
+    fun newProducto(view: View){
+        val correo = intent.getStringExtra("CORREO")
+        val intent = Intent(applicationContext, CrearProducto::class.java)
+        intent.putExtra("CORREO", correo)
+        startActivityForResult(intent, 1)
+        finish()
+    }
+
+    fun searchProductos(view: View){
+        val correo = intent.getStringExtra("CORREO")
+        val intent = Intent(applicationContext, BuscarProductos::class.java)
+        intent.putExtra("CORREO", correo)
+        startActivityForResult(intent, 1)
+        finish()
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_opciones, menu)
