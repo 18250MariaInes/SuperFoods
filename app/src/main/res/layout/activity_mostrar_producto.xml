@@ -7,35 +7,123 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".MostrarProducto"
-android:background="@color/backgroundBeige">
+        android:background="@color/backgroundBeige">
 
-    <TextView
-            android:text="Nombre"
-            android:textColor="@color/colorTurquesa"
-            android:textStyle="bold"
-            android:textSize="32dp"
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/nombretxt"/>
-    <TextView
-            android:text="Descripción"
-            android:textStyle=""
-            android:textSize="32dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/desctxt"/>
-    <TextView
-            android:text="Precio"
-            android:textSize="32dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/preciotxt"/>
-    <TextView
-            android:text="Contacto"
-            android:layout_width="match_parent"
-            android:textSize="32dp"
-            android:gravity="center"
-            android:layout_height="wrap_content" android:id="@+id/contactotxt"/>
-    <WebView
-            android:layout_width="match_parent"
-            android:layout_height="308dp" android:id="@+id/wb"/>
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+        <WebView
+                android:layout_marginTop="20dp"
+                android:layout_width="308dp"
+                android:layout_height="308dp"
+                android:id="@+id/wb"
+                android:layout_marginRight="30dp"
+                android:layout_marginLeft="50dp"/>
+        <TextView
+                android:id="@+id/tituloProd"
+                android:text="Producto"
+                android:textColor="@color/colorVerde"
+                android:textStyle="bold"
+                android:layout_below="@+id/wb"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:textSize="25sp"
+                android:layout_marginLeft="30dp"/>
+
+        <TextView
+                android:text="Nombre"
+                android:layout_below="@+id/tituloProd"
+                android:textStyle="italic"
+                android:textSize="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nombretxt"/>
+
+        <TextView
+                android:id="@+id/tituloDes"
+                android:text="Descripción"
+                android:textColor="@color/colorVerde"
+                android:textStyle="bold"
+                android:layout_below="@+id/nombretxt"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:textSize="25sp"
+                android:layout_marginLeft="30dp"/>
+
+        <TextView
+                android:text="Descripción"
+                android:textStyle="italic"
+                android:layout_below="@id/tituloDes"
+                android:textSize="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/desctxt"/>
+
+        <TextView
+                android:id="@+id/tituloPrecio"
+                android:text="Precio"
+                android:textColor="@color/colorVerde"
+                android:textStyle="bold"
+                android:layout_below="@+id/desctxt"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:textSize="25sp"
+                android:layout_marginLeft="30dp"/>
+
+        <TextView
+                android:text="Precio"
+                android:textSize="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="30dp"
+                android:textStyle="italic"
+                android:layout_below="@id/tituloPrecio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/preciotxt"/>
+
+        <TextView
+                android:id="@+id/tituloContacto"
+                android:text="Contacto"
+                android:textColor="@color/colorVerde"
+                android:textStyle="bold"
+                android:layout_below="@+id/preciotxt"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:textSize="25sp"
+                android:layout_marginLeft="30dp"/>
+
+        <TextView
+                android:text="Contacto"
+                android:layout_width="match_parent"
+                android:textSize="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="30dp"
+                android:textStyle="italic"
+                android:layout_below="@id/tituloContacto"
+                android:layout_height="wrap_content" android:id="@+id/contactotxt"/>
+
+
+    </RelativeLayout>
+
 </LinearLayout>
