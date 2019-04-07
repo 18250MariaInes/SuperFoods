@@ -8,59 +8,123 @@
         android:orientation="vertical"
         tools:context=".CrearProducto"
         android:background="@color/backgroundBeige">
-    <TextView
-            android:text="Nombre de producto:"
-            android:layout_width="match_parent"
-            android:textSize="20dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_height="wrap_content" android:id="@+id/textView2"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:textSize="25dp"
-            android:ems="10"
-            android:textColorHint="@color/colorTurquesa"
-            android:id="@+id/nombreptxt"/>
-    <TextView
-            android:text="Descripción"
-            android:textSize="20dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView3"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:textColorHint="@color/colorTurquesa"
-            android:ems="10"
-            android:textSize="25dp"
-            android:id="@+id/desctxt" />
-    <TextView
-            android:text="Precio"
-            android:textSize="20dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView4"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:textColorHint="@color/colorTurquesa"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Q"
-            android:textSize="25dp"
-            android:ems="10"
-            android:id="@+id/preciotxt" />
 
-    <ImageView
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="178dp" app:srcCompat="@android:drawable/ic_menu_add"
-            android:id="@+id/imagenProd"/>
-    <Button
-            android:text="CREAR"
-            android:layout_width="match_parent"
-            android:onClick="Crear"
-            android:background="@color/colorVerde"
-            android:textColor="@android:color/white"
-            android:layout_height="wrap_content" android:id="@+id/CrearB"/>
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+        <ImageView
+                android:layout_width="178dp"
+                android:layout_height="178dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="110dp"
+                android:layout_marginBottom="25dp"
+                app:srcCompat="@android:drawable/ic_menu_camera"
+                android:id="@+id/imagenProd"/>
+
+        <TextView
+                android:id="@+id/textView2"
+                android:text="Nombre de producto:"
+                android:textColor="@color/colorVerde"
+                android:textStyle="bold"
+                android:layout_below="@+id/imagenProd"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:textSize="20sp"
+                android:layout_marginLeft="30dp"/>
+        <EditText
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView2"
+                android:inputType="textPersonName"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="25sp"
+                android:ems="10"
+                android:textColorHint="@color/colorTurquesa"
+                android:id="@+id/nombreptxt"/>
+
+
+        <TextView
+                android:id="@+id/textView3"
+                android:text="Descripción"
+                android:textColor="@color/colorVerde"
+                android:textStyle="bold"
+                android:layout_below="@+id/nombreptxt"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:textSize="23sp"
+                android:layout_marginLeft="30dp"/>
+
+        <EditText
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:inputType="textMultiLine"
+                android:textColorHint="@color/colorTurquesa"
+                android:ems="10"
+                android:textSize="25sp"
+                android:id="@+id/desctxt"
+                android:layout_below="@id/textView3"/>
+
+
+        <TextView
+                android:id="@+id/textView4"
+                android:text="Precio"
+                android:textColor="@color/colorVerde"
+                android:textStyle="bold"
+                android:layout_below="@+id/desctxt"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:textSize="23sp"
+                android:layout_marginLeft="30dp"/>
+
+        <EditText
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:inputType="textPersonName"
+                android:text="Q"
+                android:textSize="25sp"
+                android:ems="10"
+                android:layout_below="@id/textView4"
+                android:id="@+id/preciotxt" />
+
+
+        <Button
+                android:text="CREAR"
+                android:layout_width="match_parent"
+                android:onClick="Crear"
+                android:layout_marginTop="25dp"
+                android:layout_below="@+id/preciotxt"
+                android:background="@color/colorVerde"
+                android:textColor="@android:color/white"
+                android:layout_height="wrap_content" android:id="@+id/CrearB"/>
+
+
+    </RelativeLayout>
+
+
 </LinearLayout>
