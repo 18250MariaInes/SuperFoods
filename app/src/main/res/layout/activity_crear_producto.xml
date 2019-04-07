@@ -24,6 +24,8 @@
                 app:srcCompat="@android:drawable/ic_menu_camera"
                 android:id="@+id/imagenProd"/>
 
+
+
         <TextView
                 android:id="@+id/textView2"
                 android:text="Nombre de producto:"
