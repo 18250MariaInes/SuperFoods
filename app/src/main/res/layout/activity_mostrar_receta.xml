@@ -7,57 +7,118 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".MostrarReceta"
-android:background="@color/backgroundBeige">
+        android:background="@color/backgroundBeige">
 
-    <TextView
-            android:text="Nombre de receta:"
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:textColor="@color/colorTurquesa"
-            android:textStyle="bold"
+            android:layout_height="match_parent">
 
-            android:layout_height="wrap_content" android:id="@+id/nombre"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:ems="10"
-            android:layout_height="wrap_content" android:id="@+id/nombretxt"/>
-    <TextView
-            android:text="Categoría"
-            android:layout_width="match_parent"
-            android:textColor="@color/colorTurquesa"
-            android:textStyle="bold"
-            android:layout_height="wrap_content" android:id="@+id/Categ"/>
-    <EditText
-            android:gravity="center"
-            android:ems="10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/categtxt"/>
-    <TextView
-            android:text="Ingredientes:"
-            android:layout_width="match_parent"
-            android:textColor="@color/colorTurquesa"
+        <LinearLayout
+                android:background="@color/colorVerde"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/Lin1"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            android:textStyle="bold"
-            android:layout_height="wrap_content" android:id="@+id/ingredientes"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:gravity="left"
-            android:ems="10"
-            android:layout_height="wrap_content" android:id="@+id/ingtxt"/>
-    <TextView
-            android:text="Proceso:"
-            android:layout_width="match_parent"
-            android:textColor="@color/colorTurquesa"
-            android:textStyle="bold"
-            android:layout_height="wrap_content" android:id="@+id/proceso"/>
-    <EditText
-            android:gravity="left"
-            android:layout_width="match_parent"
-            android:ems="10"
-            android:layout_height="163dp" android:id="@+id/proctxt"/>
-    <Button
-            android:text="Guardar Cambios"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/guardarC" android:onClick="guardarN"/>
+            <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/cooker"
+                    android:tint="@color/backgroundBeige"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/Lin1">
+
+            <TextView
+                    android:text="Nombre de receta:"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/colorTurquesa"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nombre"/>
+
+            <EditText
+                    android:layout_below="@id/nombre"
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:ems="10"
+                    android:layout_marginBottom="10dp"
+                    android:layout_height="wrap_content" android:id="@+id/nombretxt"/>
+            <TextView
+                    android:text="Categoría"
+                    android:layout_below="@id/nombretxt"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorTurquesa"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Categ"/>
+            <EditText
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/Categ"
+                    android:ems="10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/categtxt"/>
+            <TextView
+                    android:text="Ingredientes:"
+                    android:layout_below="@id/categtxt"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorTurquesa"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ingredientes"/>
+            <EditText
+                    android:layout_width="match_parent"
+                    android:gravity="left"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/ingredientes"
+                    android:ems="10"
+                    android:layout_height="wrap_content" android:id="@+id/ingtxt"/>
+            <TextView
+                    android:text="Proceso:"
+                    android:layout_below="@id/ingtxt"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorTurquesa"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/proceso"/>
+            <EditText
+                    android:gravity="left"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/proceso"
+                    android:layout_width="match_parent"
+                    android:ems="10"
+                    android:layout_height="163dp" android:id="@+id/proctxt"/>
+            <Button
+                    android:text="Guardar Cambios"
+                    android:layout_below="@id/proctxt"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorVerde"
+                    android:textColor="@android:color/white"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:id="@+id/guardarC"
+                    android:onClick="guardarN"/>
+
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
 
 </LinearLayout>
