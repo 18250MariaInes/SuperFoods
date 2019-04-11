@@ -5,6 +5,8 @@ import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.webkit.WebView
 import android.widget.ImageView
 import android.widget.TextView
@@ -76,5 +78,27 @@ class MostrarProducto : AppCompatActivity() {
             sendBroadcast(intent)
 
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.home, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        val id = item!!.getItemId()
+
+        if (id == R.id.home) {
+            val correo = intent.getStringExtra("CORREO")
+            val intent = Intent(applicationContext, ShowProfileActivity::class.java)
+            intent.putExtra("CORREO", correo)
+            startActivityForResult(intent, 1)
+            return true
+        }
+
+
+        return super.onOptionsItemSelected(item)
     }
 }

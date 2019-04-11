@@ -48,31 +48,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/LinearLayout1"
-                        android:layout_marginTop="100dp"
+                        android:layout_marginTop="41dp"
                         android:layout_marginRight="30dp"
                         android:layout_marginLeft="30dp">
 
-                        <ImageView
-                                android:id="@+id/userIcon"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:background="@color/colorVerde"
-                                android:padding="8dp"
-                                android:src="@drawable/user"
-                                android:tint="@color/white"/>
+                    <ImageView
+                            android:id="@+id/userIcon"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@color/colorVerde"
+                            android:padding="8dp"
+                            android:src="@drawable/user"
+                            android:tint="@color/white"/>
 
-                        <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="textPersonName"
-                                android:hint="Nombre"
-                                android:textColorHint="@color/colorTurquesa"
-                                android:layout_alignBottom="@+id/userIcon"
-                                android:layout_toRightOf="@+id/userIcon"
-                                android:layout_alignParentTop="true"
-                                android:id="@+id/txtName"
-                                android:paddingLeft="20dp"
-                                android:textSize="15sp"/>
+                    <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:hint="Nombre"
+                            android:textColorHint="@color/colorTurquesa"
+                            android:layout_alignBottom="@+id/userIcon"
+                            android:layout_toRightOf="@+id/userIcon"
+                            android:layout_alignParentTop="true"
+                            android:id="@+id/txtName"
+                            android:paddingLeft="20dp"
+                            android:textSize="15sp"/>
 
                 </RelativeLayout>
 
@@ -193,7 +193,7 @@
                 <Button
                         android:onClick="register"
                         android:text="Crear Cuenta"
-                        android:layout_marginTop="50dp"
+                        android:layout_marginTop="22dp"
                         android:layout_marginRight="30dp"
                         android:layout_marginLeft="30dp"
                         android:fontFamily="sans-serif-medium"

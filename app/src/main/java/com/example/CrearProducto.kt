@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.text.TextUtils
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
@@ -153,5 +155,27 @@ class CrearProducto : AppCompatActivity() {
         intent.putExtra("CORREO", correo)
         startActivityForResult(intent,1)
         //startActivity(Intent(this, BuscarProductos::class.java))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.home, menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        val id = item!!.getItemId()
+
+        if (id == R.id.home) {
+            val correo = intent.getStringExtra("CORREO")
+            val intent = Intent(applicationContext, ShowProfileActivity::class.java)
+            intent.putExtra("CORREO", correo)
+            startActivityForResult(intent, 1)
+            return true
+        }
+
+
+        return super.onOptionsItemSelected(item)
     }
 }

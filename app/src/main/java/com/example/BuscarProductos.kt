@@ -116,7 +116,7 @@ class BuscarProductos : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_opciones, menu)
+        menuInflater.inflate(R.menu.home, menu)
 
         return super.onCreateOptionsMenu(menu)
     }
@@ -124,25 +124,13 @@ class BuscarProductos : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         val id = item!!.getItemId()
 
-        if (id == R.id.Perfil) {
+        if (id == R.id.home) {
             val correo = intent.getStringExtra("CORREO")
             val intent = Intent(applicationContext, ShowProfileActivity::class.java)
             intent.putExtra("CORREO", correo)
             startActivityForResult(intent, 1)
             return true
-        }else if (id == R.id.Mis_Recetas) {
-            val correo = intent.getStringExtra("CORREO")
-            val intent = Intent(applicationContext, TodasRecetas::class.java)
-            intent.putExtra("CORREO", correo)
-            startActivityForResult(intent, 1)
-            return true
-        }else if (id==R.id.Mis_Productos){
-            val correo = intent.getStringExtra("CORREO")
-            val intent = Intent(this, TodosMisProductos::class.java)
-            intent.putExtra("CORREO", correo)
-            startActivityForResult(intent,1)
         }
-
 
         return super.onOptionsItemSelected(item)
     }

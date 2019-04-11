@@ -66,11 +66,7 @@ class TodosMisProductos : AppCompatActivity() {
         }
         ).attachToRecyclerView(mProdList)
     }
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_opciones, menu)
 
-        return super.onCreateOptionsMenu(menu)
-    }
     override fun onDestroy() {
         super.onDestroy()
 
@@ -131,40 +127,25 @@ class TodosMisProductos : AppCompatActivity() {
                 }
             })
     }
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item != null) {
-            mAdapter!!.setOnItemClickListener(object :MisProductosRV.onItemClickListener{
-                override fun onItemClick(contact: Producto){
-                    var intent= Intent(baseContext, MostrarProducto::class.java)
-                    intent.putExtra(MostrarProducto.EXTRA_NOMBREP, contact.nombre)
-                    intent.putExtra(MostrarProducto.EXTRA_DESC, contact.descripcion)
-                    intent.putExtra(MostrarProducto.EXTRA_PRECIO, contact.precio)
-                    intent.putExtra(MostrarProducto.EXTRA_CONTACTO, contact.contacto)
-                    intent.putExtra(MostrarProducto.EXTRA_IMG, contact.img)
-                    startActivityForResult(intent, 1)
-                }
-            })
-            val id = item!!.getItemId()
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.home, menu)
 
-            if (id == R.id.Perfil) {
-                val correo = intent.getStringExtra("CORREO")
-                val intent = Intent(applicationContext, ShowProfileActivity::class.java)
-                intent.putExtra("CORREO", correo)
-                startActivityForResult(intent, 1)
-                return true
-            }else if (id == R.id.Mis_Recetas) {
-                val correo = intent.getStringExtra("CORREO")
-                val intent = Intent(applicationContext, TodasRecetas::class.java)
-                intent.putExtra("CORREO", correo)
-                startActivityForResult(intent, 1)
-                return true
-            }else if (id==R.id.Buscar_Productos){
-                val correo = intent.getStringExtra("CORREO")
-                val intent = Intent(this, BuscarProductos::class.java)
-                intent.putExtra("CORREO", correo)
-                startActivityForResult(intent,1)
-            }
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        val id = item!!.getItemId()
+
+        if (id == R.id.home) {
+            val correo = intent.getStringExtra("CORREO")
+            val intent = Intent(applicationContext, ShowProfileActivity::class.java)
+            intent.putExtra("CORREO", correo)
+            startActivityForResult(intent, 1)
+            return true
         }
+
+
         return super.onOptionsItemSelected(item)
     }
 }

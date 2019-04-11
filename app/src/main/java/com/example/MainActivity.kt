@@ -18,23 +18,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_opciones, menu)
-        return true
+        menuInflater.inflate(R.menu.home, menu)
+
+        return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
-        val id = item.getItemId()
+        val id = item!!.getItemId()
 
-        if (id == R.id.GuardaReceta) {
-            return true
+        if (id == R.id.home) {
             val correo = intent.getStringExtra("CORREO")
             val intent = Intent(applicationContext, ShowProfileActivity::class.java)
             intent.putExtra("CORREO", correo)
             startActivityForResult(intent, 1)
             return true
         }
+
 
         return super.onOptionsItemSelected(item)
     }
