@@ -100,7 +100,9 @@
                     android:layout_below="@id/proceso"
                     android:layout_width="match_parent"
                     android:ems="10"
-                    android:layout_height="163dp" android:id="@+id/proctxt"/>
+                    android:inputType="textMultiLine"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/proctxt"/>
             <Button
                     android:text="Guardar Cambios"
                     android:layout_below="@id/proctxt"

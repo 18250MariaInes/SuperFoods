@@ -67,11 +67,11 @@ class TodosMisProductos : AppCompatActivity() {
         ).attachToRecyclerView(mProdList)
     }
 
-    override fun onDestroy() {
+    /*override fun onDestroy() {
         super.onDestroy()
 
         firestoreListener!!.remove()
-    }
+    }*/
     fun remove(correo:String){
         us!!.collection("productos").whereEqualTo("contacto", correo).whereEqualTo("nombre", selec!!.nombre).get()
             .addOnSuccessListener(OnSuccessListener { documentSnapshots ->
@@ -89,13 +89,16 @@ class TodosMisProductos : AppCompatActivity() {
     {
         mAdapter!!.setOnItemClickListener(object :MisProductosRV.onItemClickListener{
             override fun onItemClick(contact: Producto){
+                val correo = intent.getStringExtra("CORREO")
                 var intent= Intent(baseContext, MostrarProducto::class.java)
+                intent.putExtra("CORREO", correo)
                 intent.putExtra(MostrarProducto.EXTRA_NOMBREP, contact.nombre)
                 intent.putExtra(MostrarProducto.EXTRA_DESC, contact.descripcion)
                 intent.putExtra(MostrarProducto.EXTRA_PRECIO, contact.precio)
                 intent.putExtra(MostrarProducto.EXTRA_CONTACTO, contact.contacto)
                 intent.putExtra(MostrarProducto.EXTRA_IMG, contact.img)
                 startActivityForResult(intent, 1)
+                finish()
             }
         })
     }
@@ -142,6 +145,7 @@ class TodosMisProductos : AppCompatActivity() {
             val intent = Intent(applicationContext, ShowProfileActivity::class.java)
             intent.putExtra("CORREO", correo)
             startActivityForResult(intent, 1)
+            finish()
             return true
         }
 

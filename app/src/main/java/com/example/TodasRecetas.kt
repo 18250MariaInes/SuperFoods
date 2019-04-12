@@ -149,6 +149,7 @@ class TodasRecetas : AppCompatActivity() {
             val intent = Intent(applicationContext, ShowProfileActivity::class.java)
             intent.putExtra("CORREO", correo)
             startActivityForResult(intent, 1)
+            finish()
             return true
         }
 

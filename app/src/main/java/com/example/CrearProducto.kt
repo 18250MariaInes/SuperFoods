@@ -154,6 +154,7 @@ class CrearProducto : AppCompatActivity() {
         val intent = Intent(this, BuscarProductos::class.java)
         intent.putExtra("CORREO", correo)
         startActivityForResult(intent,1)
+        finish()
         //startActivity(Intent(this, BuscarProductos::class.java))
     }
 
@@ -172,6 +173,7 @@ class CrearProducto : AppCompatActivity() {
             val intent = Intent(applicationContext, ShowProfileActivity::class.java)
             intent.putExtra("CORREO", correo)
             startActivityForResult(intent, 1)
+            finish()
             return true
         }
 

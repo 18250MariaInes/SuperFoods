@@ -33,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
     }
     fun login(view:View){
         loginUser()
+
     }
     private fun loginUser(){
         val user:String=txtUser.text.toString()
@@ -48,6 +49,7 @@ class LoginActivity : AppCompatActivity() {
                     if (task.isSuccessful){
                         //finish()
                        action()
+                        finish()
                     }else{
                         Toast.makeText(this, "Error al iniciar sesión (autenticación)", Toast.LENGTH_LONG).show()
                     }

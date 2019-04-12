@@ -111,6 +111,7 @@ class BuscarProductos : AppCompatActivity() {
                 intent.putExtra(MostrarProducto.EXTRA_CONTACTO, contact.contacto)
                 intent.putExtra(MostrarProducto.EXTRA_IMG, contact.img)
                 startActivityForResult(intent, 1)
+                finish()
             }
         })
     }
@@ -129,6 +130,7 @@ class BuscarProductos : AppCompatActivity() {
             val intent = Intent(applicationContext, ShowProfileActivity::class.java)
             intent.putExtra("CORREO", correo)
             startActivityForResult(intent, 1)
+            finish()
             return true
         }
 

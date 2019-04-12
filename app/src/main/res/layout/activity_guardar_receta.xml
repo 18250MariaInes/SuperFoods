@@ -84,7 +84,7 @@
                         android:ems="10"
                         android:layout_marginBottom="10dp"
                         android:scrollbars="vertical"
-                        android:minLines="6"
+                        android:minLines="3"
                         android:gravity="top|left"
                         android:id="@+id/ingretxt"/>
                 <TextView
@@ -96,15 +96,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" android:id="@+id/proceso"/>
                 <EditText
-                        android:inputType="textMultiLine"
-                        android:layout_width="match_parent"
-                        android:layout_below="@id/proceso"
+                        android:gravity="left"
                         android:layout_marginBottom="10dp"
-                        android:layout_height="135dp"
-                        android:gravity="top|left"
-                        android:minLines="6"
-                        android:scrollbars="vertical"
+                        android:layout_below="@id/proceso"
+                        android:layout_width="match_parent"
                         android:ems="10"
+                        android:inputType="textMultiLine"
+                        android:layout_height="wrap_content"
                         android:id="@+id/procesotxt"/>
                 <Button
                         android:text="GUARDAR"

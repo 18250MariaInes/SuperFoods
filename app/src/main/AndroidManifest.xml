@@ -29,7 +29,9 @@
                   android:label="Mostrar Receta">
         </activity>
         <activity android:name=".GuardarReceta"
-                  android:label="Receta Nueva">
+                  android:label="Receta Nueva"
+        android:windowSoftInputMode="adjustResize|stateHidden">
+
         </activity>
         <activity android:name=".LoginActivity">
             <intent-filter>
